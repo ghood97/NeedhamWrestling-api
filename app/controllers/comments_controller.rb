@@ -49,12 +49,11 @@ class CommentsController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
-    binding .pry
-    if current_user.id === 1
-      @comment = Comment.find(params[:id])
-    else
-      @comment = current_user.comments.find(params[:id])
-    end
+    @comment = if current_user.id == 1
+                 Comment.find(params[:id])
+               else
+                 current_user.comments.find(params[:id])
+               end
   end
 
   # Only allow a trusted parameter "white list" through.
