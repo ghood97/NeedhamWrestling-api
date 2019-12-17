@@ -54,7 +54,8 @@ class UsersController < ProtectedController
                   :password,
                   :password_confirmation,
                   :first_name,
-                  :last_name)
+                  :last_name,
+                  :admin)
   end
 
   def pw_creds
